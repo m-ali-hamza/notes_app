@@ -57,7 +57,7 @@ class AddNoteScreen extends StatelessWidget {
             final data = NotesModel(
                 title: titleController.text,
                 description: descriptionController.text);
-            if (titleController.text.isEmpty &&
+            if (titleController.text.isEmpty ||
                 descriptionController.text.isEmpty) {
               Navigator.pop(context);
             } else {

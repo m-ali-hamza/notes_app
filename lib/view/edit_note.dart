@@ -70,13 +70,19 @@ class EditNoteScreen extends StatelessWidget {
           onPressed: () async {
             notesModel.title = titleController.text;
             notesModel.description = descriptionController.text;
-            await notesModel.save();
+           if (titleController.text.isEmpty ||
+                descriptionController.text.isEmpty) {
+              Navigator.pop(context);
+            } 
+            else{
+              await notesModel.save();
 
             titleController.clear();
             descriptionController.clear();
 
             // ignore: use_build_context_synchronously
             Navigator.pop(context);
+            }
           },
           child: const Icon(
             Icons.save,
